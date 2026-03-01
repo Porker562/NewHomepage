@@ -2,6 +2,14 @@
 /* GLOBAL */
 /* ======================= */
 
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    overflow-x: hidden;
+}
+
 body {
     margin: 0;
     font-family: monospace;
@@ -20,11 +28,9 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-
     background: #111;
     padding: 18px 30px;
     border-radius: 0 0 12px 12px;
-
     max-width: 900px;
     margin: auto;
     position: relative;
@@ -38,29 +44,21 @@ body {
     padding: 0;
 }
 
-.nav-links a {
+.nav-links a,
+.social a {
     color: #ccc;
     text-decoration: none;
     font-size: 14px;
 }
 
-.nav-links a:hover {
+.nav-links a:hover,
+.social a:hover {
     color: white;
 }
 
 .social {
     display: flex;
     gap: 20px;
-}
-
-.social a {
-    color: #ccc;
-    font-size: 14px;
-    text-decoration: none;
-}
-
-.social a:hover {
-    color: white;
 }
 
 .hamburger {
@@ -79,7 +77,6 @@ body {
 .hero {
     max-width: 1100px;
     margin: 100px auto 0 auto;
-
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -159,7 +156,7 @@ body {
     background: white;
     text-align: center;
     padding: 40px 20px;
-    border-top: 1px solid #ddd; /* divider fixed */
+    border-top: 1px solid #ddd;
 }
 
 .kent-logo {
@@ -202,13 +199,11 @@ body {
     color: black;
     padding: 30px;
     border-radius: 12px;
-
-    width: 350px;
-    height: 350px;
+    width: 100%;
+    max-width: 350px;
 
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     text-align: center;
 
@@ -219,6 +214,7 @@ body {
 
 .project-card video {
     width: 100%;
+    height: auto;
     aspect-ratio: 1 / 1;
     object-fit: cover;
     border-radius: 8px;
@@ -256,22 +252,15 @@ body {
 
 @media (max-width: 768px) {
 
-    /* ================= HERO ================= */
+    /* HERO */
 
     .hero {
         flex-direction: column;
         align-items: center;
-        justify-content: center;
         text-align: center;
-
-        margin: 40px auto 0 auto;   /* remove side margin */
-        padding: 40px 20px;         /* override large desktop padding */
-        gap: 30px;
-
-        min-height: auto;           /* prevents huge empty space */
-
+        margin: 40px auto 0 auto;
         padding: 40px 20px;
-        margin-top: 40px;       
+        gap: 30px;
     }
 
     .hero-text {
@@ -284,12 +273,6 @@ body {
 
     .hero-text p {
         font-size: 15px;
-        line-height: 1.6;
-    }
-
-    .hero-btn {
-        width: 100%;
-        max-width: 250px;
     }
 
     .hero-image img {
@@ -297,12 +280,7 @@ body {
         height: 200px;
     }
 
-    /* ================= NAV ================= */
-
-    .nav {
-        justify-content: space-between;
-        position: relative;
-    }
+    /* NAV */
 
     .hamburger {
         display: block;
@@ -329,14 +307,14 @@ body {
         display: none;
     }
 
-    /* ================= PROJECTS ================= */
+    /* PROJECTS */
 
     .projects-section {
         padding: 60px 20px;
     }
 
     .projects-title {
-        font-size: 30px;
+        font-size: 28px;
     }
 
     .projects-container {
@@ -346,16 +324,10 @@ body {
     }
 
     .project-card {
-        width: 100%;
-        max-width: 350px;
-        padding: 25px;
+        max-width: 90%;
     }
 
-    .video-wrapper video {
-        width: 100%;
-    }
-
-    /* ================= CONTACT ================= */
+    /* CONTACT */
 
     .contact {
         padding: 60px 20px;
