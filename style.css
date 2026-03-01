@@ -1,16 +1,20 @@
+/* ======================= */
+/* GLOBAL */
+/* ======================= */
+
 body {
     margin: 0;
     font-family: monospace;
     background: #000;
 }
 
-/*This is all for top header and nav*/
+/* ======================= */
+/* HEADER + NAV */
+/* ======================= */
 
 .header {
-    width: 100%;   
+    width: 100%;
 }
-
-/*Basic Nav*/
 
 .nav {
     display: flex;
@@ -23,6 +27,7 @@ body {
 
     max-width: 900px;
     margin: auto;
+    position: relative;
 }
 
 .nav-links {
@@ -43,8 +48,6 @@ body {
     color: white;
 }
 
-/*Linked in section*/
-
 .social {
     display: flex;
     gap: 20px;
@@ -60,16 +63,27 @@ body {
     color: white;
 }
 
-/* Hero Section*/
+.hamburger {
+    display: none;
+    font-size: 26px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+/* ======================= */
+/* HERO SECTION */
+/* ======================= */
 
 .hero {
     max-width: 1100px;
     margin: 100px auto 0 auto;
 
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    gap: 60px;
+    justify-content: space-between;
+    padding: 100px 60px;
 }
 
 .hero-text {
@@ -88,34 +102,21 @@ body {
     margin-bottom: 30px;
 }
 
-.hero-btn {
-    background: #222;        
-    color: white;
-    padding: 14px 28px;
-    border: 1px solid #444;
-    border-radius: 6px;
-    cursor: pointer;
-    font-family: monospace;
-}
-
-.hero-btn:hover {
-    background: #333;
-}
-
 .hero-image img {
-    width: 400px;      
+    width: 400px;
     height: 400px;
     border-radius: 50%;
     object-fit: cover;
 }
 
-
-/*Contact Section*/
+/* ======================= */
+/* CONTACT SECTION */
+/* ======================= */
 
 .contact {
     background: white;
     padding: 100px 20px;
-    margin-top: 120px;   
+    margin-top: 120px;
 }
 
 .contact-container {
@@ -137,7 +138,6 @@ body {
 
 .email-link {
     display: inline-block;
-    margin-top: 20px;
     font-size: 20px;
     color: black;
     text-decoration: none;
@@ -151,138 +151,25 @@ body {
     border-color: #555;
 }
 
-.hamburger {
-    display: none;
-    font-size: 26px;
-    background: none;
-    border: none;
-    color: white;
-    cursor: pointer;
-}
+/* ======================= */
+/* FOOTER */
+/* ======================= */
 
 .footer {
     background: white;
     text-align: center;
     padding: 40px 20px;
+    border-top: 1px solid #ddd; /* divider fixed */
 }
 
 .kent-logo {
-    width: 120px;     /* controls size */
+    width: 120px;
     height: auto;
     opacity: 0.9;
-    border-top: 1px solid #000000;   
-}
-
-/*Mobile Hero Section*/
-
-@media (max-width: 768px) {
-
-    .hero {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-
-        margin: 60px 20px 0 20px;
-        gap: 40px;
-    }
-
-    .hero-text {
-        max-width: 100%;
-    }
-
-    .hero-text h1 {
-        font-size: 32px;
-    }
-
-    .hero-text p {
-        font-size: 14px;
-    }
-
-    .hero-btn {
-        width: 100%;
-        max-width: 250px;
-    }
-
-    .hero-image img {
-        width: 220px;
-        height: 220px;
-    }
-
-    .nav-links {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 70px;
-        left: 0;
-        width: 100%;
-        background: #111;
-        padding: 20px;
-        gap: 20px;
-    }
-
-    .nav-links.active {
-        display: flex;
-    }  
-    .nav {
-        justify-content: flex-start;
-        position: relative;
-    }
-
-    .hamburger {
-        display: block;
-        margin-right: auto;
-    }
-
-    .nav-links {
-        display: none;
-        flex-direction: column;
-        gap: 20px;
-
-        position: absolute;
-        top: 70px;
-        left: 0;
-
-        width: 100%;
-        background: #111;
-        padding: 20px;
-    }
-
-    .nav-links.active {
-        display: flex;
-    }
-
-    .social {
-        display: none;
-    }
-
-
-}
-
-
-.fade-in {
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeUp 0.8s ease forwards;
-}
-
-.fade-delay-1 { animation-delay: 0.2s; }
-.fade-delay-2 { animation-delay: 0.4s; }
-.fade-delay-3 { animation-delay: 0.6s; }
-.fade-delay-4 { animation-delay: 0.8s; }
-
-@keyframes fadeUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
 }
 
 /* ======================= */
-/* PROJECTS SECTION */
+/* PROJECTS */
 /* ======================= */
 
 .projects-section {
@@ -306,7 +193,6 @@ body {
 .projects-container {
     display: flex;
     justify-content: center;
-    align-items: flex-start;   /* prevents vertical stretch */
     gap: 40px;
     flex-wrap: wrap;
 }
@@ -314,48 +200,170 @@ body {
 .project-card {
     background: white;
     color: black;
-    padding: 40px;
-    border-radius: 8px;
-    text-align: left;
+    padding: 30px;
+    border-radius: 12px;
+
+    width: 350px;
+    height: 350px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 
     opacity: 0;
     transform: translateY(20px);
     animation: fadeInUp 0.8s ease forwards;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
 }
 
-.project-card h3 {
+.project-card video {
     width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
     border-radius: 8px;
     margin-top: 15px;
 }
 
-.video-wrapper video {
-    width: 100%;
-    border-radius: 6px;
-    margin-bottom: 20px;
+/* ======================= */
+/* ANIMATIONS */
+/* ======================= */
+
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUp 0.8s ease forwards;
 }
 
-.project-card.show {
-    opacity: 1;
-    transform: translateY(0);
-}
+.fade-delay-1 { animation-delay: 0.2s; }
+.fade-delay-2 { animation-delay: 0.4s; }
+.fade-delay-3 { animation-delay: 0.6s; }
+.fade-delay-4 { animation-delay: 0.8s; }
 
-.project-card video {
-    margin-top: 15px;
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ======================= */
+/* MOBILE */
+/* ======================= */
+
+@media (max-width: 768px) {
+
+    /* ================= HERO ================= */
+
+    .hero {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+
+        margin: 40px auto 0 auto;   /* remove side margin */
+        padding: 40px 20px;         /* override large desktop padding */
+        gap: 30px;
+
+        min-height: auto;           /* prevents huge empty space */
+
+        padding: 40px 20px;
+        margin-top: 40px;       
     }
-    to {
-        opacity: 1;
-        transform: translateY(0);
+
+    .hero-text {
+        max-width: 100%;
     }
+
+    .hero-text h1 {
+        font-size: 30px;
+    }
+
+    .hero-text p {
+        font-size: 15px;
+        line-height: 1.6;
+    }
+
+    .hero-btn {
+        width: 100%;
+        max-width: 250px;
+    }
+
+    .hero-image img {
+        width: 200px;
+        height: 200px;
+    }
+
+    /* ================= NAV ================= */
+
+    .nav {
+        justify-content: space-between;
+        position: relative;
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 65px;
+        left: 0;
+        width: 100%;
+        background: #111;
+        padding: 20px 0;
+        gap: 20px;
+        text-align: center;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .social {
+        display: none;
+    }
+
+    /* ================= PROJECTS ================= */
+
+    .projects-section {
+        padding: 60px 20px;
+    }
+
+    .projects-title {
+        font-size: 30px;
+    }
+
+    .projects-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+
+    .project-card {
+        width: 100%;
+        max-width: 350px;
+        padding: 25px;
+    }
+
+    .video-wrapper video {
+        width: 100%;
+    }
+
+    /* ================= CONTACT ================= */
+
+    .contact {
+        padding: 60px 20px;
+        margin-top: 80px;
+    }
+
+    .contact h2 {
+        font-size: 28px;
+    }
+
 }
