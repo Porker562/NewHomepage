@@ -1,12 +1,24 @@
 const canvas = document.getElementById("game")
 const ctx = canvas.getContext("2d")
 
+/* =========================
+   RESPONSIVE CANVAS
+========================= */
+
+canvas.width = Math.min(window.innerWidth - 40, 900)
+canvas.height = 250
+
+/* =========================
+   GAME VARIABLES
+========================= */
+
 let gravity = 0.6
 let velocity = 0
 let jump = -12
 let speed = 6
 
 let gameOver = false
+let gameStarted = false
 
 let dino = {
 x:50,
@@ -18,19 +30,49 @@ height:47
 let cactus = []
 let score = 0
 
-document.addEventListener("keydown",e=>{
+/* =========================
+   JUMP ACTION
+========================= */
 
-if(gameOver && e.code === "Space"){
+function jumpAction(){
+
+if(gameOver){
 location.reload()
+return
 }
 
-if(e.code === "Space"){
-if(dino.y >= 180 && !gameOver){
+gameStarted = true
+
+if(dino.y >= 180){
 velocity = jump
 }
+
+}
+
+/* =========================
+   DESKTOP CONTROLS
+========================= */
+
+document.addEventListener("keydown", e => {
+
+if(e.code === "Space"){
+jumpAction()
 }
 
 })
+
+/* =========================
+   MOBILE CONTROLS
+   (canvas only so links work)
+========================= */
+
+canvas.addEventListener("touchstart", () => {
+jumpAction()
+})
+
+/* =========================
+   SPAWN CACTUS
+========================= */
 
 function spawnCactus(){
 
@@ -46,6 +88,10 @@ height:50
 }
 
 setInterval(spawnCactus,2000)
+
+/* =========================
+   UPDATE GAME
+========================= */
 
 function update(){
 
@@ -80,21 +126,42 @@ score++
 
 }
 
+/* =========================
+   DRAW GAME
+========================= */
+
 function draw(){
 
 ctx.clearRect(0,0,canvas.width,canvas.height)
 
+/* Dino */
+
 ctx.fillStyle="black"
 ctx.fillRect(dino.x,dino.y,dino.width,dino.height)
 
+/* Ground */
+
 ctx.fillRect(0,230,canvas.width,2)
+
+/* Cactus */
 
 cactus.forEach(c=>{
 ctx.fillRect(c.x,c.y,c.width,c.height)
 })
 
+/* Score */
+
 ctx.font="20px monospace"
 ctx.fillText("Score: "+score,canvas.width-150,40)
+
+/* Mobile Helper */
+
+if(!gameStarted && !gameOver){
+ctx.font="18px monospace"
+ctx.fillText("Tap or Press SPACE to Jump",canvas.width/2-140,120)
+}
+
+/* Game Over */
 
 if(gameOver){
 
@@ -102,11 +169,15 @@ ctx.font="40px monospace"
 ctx.fillText("GAME OVER",canvas.width/2-120,120)
 
 ctx.font="18px monospace"
-ctx.fillText("Press SPACE to restart",canvas.width/2-130,160)
+ctx.fillText("Tap or Press SPACE to Restart",canvas.width/2-160,160)
 
 }
 
 }
+
+/* =========================
+   GAME LOOP
+========================= */
 
 function gameLoop(){
 
