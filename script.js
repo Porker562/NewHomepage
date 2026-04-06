@@ -1,16 +1,22 @@
 const hamburger = document.querySelector(".hamburger");
 const navLinks = document.querySelector(".nav-links");
 
-hamburger.addEventListener("click", () => {
-    navLinks.classList.toggle("active");
-});
-
-window.addEventListener("DOMContentLoaded", () => {
-    const cards = document.querySelectorAll(".project-card");
-
-    cards.forEach((card, index) => {
-        setTimeout(() => {
-            card.classList.add("show");
-        }, index * 200);
+if (hamburger && navLinks) {
+    hamburger.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
     });
-});
+}
+
+const dropdown = document.querySelector(".dropdown");
+const toggle = document.querySelector(".dropdown-toggle");
+
+if (toggle && dropdown) {
+    toggle.addEventListener("click", (e) => {
+        e.stopPropagation();
+        dropdown.classList.toggle("active");
+    });
+
+    document.addEventListener("click", () => {
+        dropdown.classList.remove("active");
+    });
+}
