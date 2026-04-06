@@ -4,7 +4,6 @@
 <head>
     <meta charset="UTF-8">
 
-    <!-- CRITICAL FOR MOBILE RESPONSIVENESS -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Parker Tincher | Portfolio</title>
@@ -19,17 +18,25 @@
 
         <button class="hamburger" aria-label="Toggle Menu">&#9776;</button>
 
-        <!-- Navigation Links -->
         <ul class="nav-links">
             <li><a href="Home.html">Home</a></li>
-            <li><a href="Projects.html">Projects</a></li>
+
+            <li class="dropdown">
+                <span class="dropdown-toggle">Projects ▾</span>
+
+                <ul class="dropdown-menu">
+                    <li><a href="Artifact1.html">Artifact 1</a></li>
+                    <li><a href="Projects.html?filter=data">Placeholder</a></li>
+                    <li><a href="Projects.html?filter=other">Placeholder</a></li>
+                </ul>
+            </li>
+
             <li><a href="Contact.html">Contact</a></li>
         </ul>
 
-        <!-- LinkedIn -->
         <div class="social">
-            <a href="https://www.linkedin.com/in/parker-tincher/" 
-               target="_blank" 
+            <a href="https://www.linkedin.com/in/parker-tincher/"
+               target="_blank"
                rel="noopener noreferrer">
                LinkedIn
             </a>
@@ -44,9 +51,9 @@
 
         <p>
             Hello! My name is Parker Tincher. I am currently in my 4th year at Kent State University,
-            graduating with a Bachelor of Science in Information Technology with a concentration in 
-            Database Design/Administration. I have real-world experience using and pushing code for 
-            CNC machining, along with various certifications in the tech space. My professional goals 
+            graduating with a Bachelor of Science in Information Technology with a concentration in
+            Database Design/Administration. I have real-world experience using and pushing code for
+            CNC machining, along with various certifications in the tech space. My professional goals
             are to become proficient in SQL and pursue a career as a Data Engineer or Database Administrator.
         </p>
     </div>
